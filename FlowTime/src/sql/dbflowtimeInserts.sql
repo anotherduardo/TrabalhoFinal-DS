@@ -33,7 +33,7 @@ INSERT INTO `tb_article`(`CD_ARTICLE`, `DT_DATE`, `COD_DOI`, `NM_PUBLISHER`, `TL
 INSERT INTO `tb_article`(`CD_ARTICLE`, `DT_DATE`, `COD_DOI`, `NM_PUBLISHER`, `TL_ARTICLE`) VALUES (11,'2008-7-04',"NOT DOI","IEEE","ACs on Criptography");
 
 /* ---------------------------------
-TABELA DE CONQUISTAS ACAD�MICAS
+TABELA DE CONQUISTAS ACADEMICAS
 ------------------------------------*/
 
 INSERT INTO `tb_achievements`(`CD_ACHIEVEMENT`, `DESC_ACHIEVEMENT`, `LV_IMPACT`, `CD_REFPAPER`) VALUES (1,"Criacao de novos operadores",5,1);

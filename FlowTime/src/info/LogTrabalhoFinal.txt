@@ -1,0 +1,122 @@
+===================================
+Ferramentas
+===================================
+[ok]-eclipe
+[ok]-mysql-connector-java-5.146
+[ok]-wildfly-12.0.0.Final
+[ok]-jdk-8u161-windows-x64
+[ok]-xampp-win232-5.6.34-0-VC11-installer
+[ok]-scripts
+
+===================================
+Conteudo do arquivo 'scripts'
+===================================
+
+standalone.bat --server-config=standalone-full.xml
+
+./jboss-cli.sh --connect controller=127.0.0.1
+
+module add --name=com.mysql --resources=d:\\dev\\mysql-connector-java-5.1.46-bin.jar --dependencies=javax.api,javax.transaction.api --module-root-dir=../modules/system/layers/base
+
+/subsystem=datasources/jdbc-driver=mysql:add(driver-name="mysql",driver-module-name="com.mysql",driver-class-name=com.mysql.jdbc.Driver
+
+data-source add --jndi-name=java:/ExtensaoDS --name=ExtensaoPool --connection-url=jdbc:mysql://localhost:3306/dbExtensao --driver-name=mysql --user-name=root --min-pool-size=10 --max-pool-size=30
+
+
+===================================
+Conteudo do arquivo 'scripts do FORGE CONSOLE'
+===================================
+
+project-new --named ExtensaoServer --top-level-package br.edu.iftm.SistemaExtensao --type war --stack JAVA_EE_7
+
+jpa-setup --provider Hibernate --db-type MYSQL --data-source-name java:/ExtensaoDS
+
+rest-setup
+cdi-setup
+
+===================================
+Passos do V�deo 1: Configura��o do Ambiente
+===================================
+1-Criar um usu�rio administrativo no wildfly (root/root)
+2-Instalar o conector mysql com alguns comandos do 'scripts'
+
+===================================
+Passos do V�deo 2: ????
+===================================
+Crie um projeto novo pelo forge console
+ No eclipse: show view/other/forge console
+  (S� poss�vel se tiver o JBOSS instalado no eclipse)
+  forge: configura��es do projeto via comandos
+  proximo comando: cria um projeto da organiza��o Mavem
+ 
+ Com o forge console:
+  project-new --named FlowTime --top-level-package br.com.FlowTime --type war --stack JAVA_EE_7
+  jpa-setup --provider Hibernate --db-type MYSQL --data-source-name java:/FlowTimeDS
+  
+ Configura��es padr�es do rest e do cdi
+  rest-setup
+  cdi-setup
+  
+  
+  data-source add --jndi-name=java:/FlowTimeDS --name=FlowTimePool --connection-url=jdbc:mysql://localhost:3306/dbFlowTime --driver-name=mysql --user-name=root --min-pool-size=10 --max-pool-size=30
+  
+===================================
+TESTES DO CRUD WS
+=================================== 
+RESEARCHER WS:
+ C->
+ R->OK (id)
+ R->OK (all)
+ U->
+ D->OK
+
+ACHIEVEMENT WS:
+ C->
+ R->OK (id)
+ R->OK (all)
+ U->
+ D->OK
+
+ARTICLE WS:
+ C->
+ R->OK (id)
+ R->OK (all)
+ U->
+ D->OK
+ 
+===================================
+TESTES DO CRUD RS
+=================================== 
+RESEARCHER RS:
+ C->
+ R-> (id)
+ R->OK (all)
+ U->
+ D->
+
+ACHIEVEMENT RS:
+ C->
+ R-> (id)
+ R->OK (all)
+ U->
+ D->
+
+ARTICLE RS:
+ C->
+ R-> (id)
+ R->OK (all)
+ U->
+ D->
+ 
+ 
+===================================
+CONT�UDO DOS COMMITS
+===================================
+COMMIT 01
+
+[BackEnd] Criação das classes base do pacote (domain);
+[BackEnd] Criação das classes de persistência (dao);
+[BackEnd] Criação das classes de serviços (ws);
+[BackEnd] Criação das classes de serviços (rs);
+[DataBase] Criação do Script de alimentação do Banco de Dados;
+[DataBase] Criação do Script de BackUp do Banco de Dados;
