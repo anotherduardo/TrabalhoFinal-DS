@@ -88,25 +88,25 @@ ARTICLE WS:
 TESTES DO CRUD RS
 =================================== 
 RESEARCHER RS:
- C->
- R-> (id)
+ C->OK
+ R->OK (id)
  R->OK (all)
- U->
- D->
+ U->OK
+ D->OK
 
 ACHIEVEMENT RS:
- C->
- R-> (id)
+ C->OK
+ R->OK (id)
  R->OK (all)
- U->
- D->
+ U->OK
+ D->OK
 
 ARTICLE RS:
- C->
- R-> (id)
+ C->OK
+ R->OK (id)
  R->OK (all)
- U->
- D->
+ U->OK
+ D->OK
  
  
 ===================================
